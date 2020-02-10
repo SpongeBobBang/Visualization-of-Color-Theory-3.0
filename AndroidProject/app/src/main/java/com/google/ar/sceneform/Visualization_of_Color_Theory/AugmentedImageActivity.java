@@ -205,12 +205,32 @@ public class AugmentedImageActivity extends AppCompatActivity {
         switch (view.getId()) {
             case R.id.channelRed:
                 toggleOnChannels(0);
+                toggleSwitchTransparency(view);
                 break;
             case R.id.channelYellow:
                 toggleOnChannels(1);
+                toggleSwitchTransparency(view);
                 break;
             case R.id.channelBlue:
                 toggleOnChannels(2);
+                toggleSwitchTransparency(view);
+                break;
+        }
+    }
+
+    private void toggleSwitchTransparency(View view) {
+        switch (view.getId()) {
+            case R.id.channelRed:
+                view.setBackgroundResource(onChannels[AugmentedImageNode.iRed] ?
+                        R.color.red : R.color.red_50A);
+                break;
+            case R.id.channelYellow:
+                view.setBackgroundResource(onChannels[AugmentedImageNode.iYellow] ?
+                        R.color.yellow : R.color.yellow_50A);
+                break;
+            case R.id.channelBlue:
+                view.setBackgroundResource(onChannels[AugmentedImageNode.iBlue] ?
+                        R.color.blue : R.color.blue_50A);
                 break;
         }
     }

@@ -19,8 +19,9 @@
     android:layout_height="match_parent"
     tools:context=".AugmentedImageActivity">
 
-    <fragment android:name="com.google.ar.sceneform.Visualization_of_Color_Theory.AugmentedImageFragment"
+    <fragment
         android:id="@+id/ux_fragment"
+        android:name="com.google.ar.sceneform.Visualization_of_Color_Theory.AugmentedImageFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
@@ -45,7 +46,8 @@
             android:layout_marginRight="16dp"
             android:onClick="toggleChannel"
             android:textSize="12sp"
-            android:text="@string/channel_red" />
+            android:text="@string/channel_red"
+            android:background="@color/red_50A"/>
 
         <Switch
             android:id="@+id/channelYellow"
@@ -58,7 +60,9 @@
             android:layout_marginRight="16dp"
             android:onClick="toggleChannel"
             android:textSize="12sp"
-            android:text="@string/channel_yellow" />
+            android:textColor="@color/black"
+            android:text="@string/channel_yellow"
+            android:background="@color/yellow_50A"/>
 
         <Switch
             android:id="@+id/channelBlue"
@@ -71,7 +75,8 @@
             android:layout_marginRight="16dp"
             android:onClick="toggleChannel"
             android:textSize="12sp"
-            android:text="@string/channel_blue" />
+            android:text="@string/channel_blue"
+            android:background="@color/blue_50A"/>
 
         <ImageView
             android:id="@+id/image_view_fit_to_scan"

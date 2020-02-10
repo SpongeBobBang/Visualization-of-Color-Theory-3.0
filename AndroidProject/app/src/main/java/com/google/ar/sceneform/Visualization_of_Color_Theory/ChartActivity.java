@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.DashPathEffect;
 import android.graphics.drawable.Drawable;
 import android.media.Image;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -65,6 +66,7 @@ public class ChartActivity extends AppCompatActivity implements SeekBar.OnSeekBa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chart);
         namePainting = findViewById(R.id.namePainting);
+        ConstraintLayout layout = findViewById(R.id.layoutChart);
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
@@ -80,12 +82,15 @@ public class ChartActivity extends AppCompatActivity implements SeekBar.OnSeekBa
         switch (curr_img) {
             case 0:
                 painting.setBackgroundResource(R.drawable.forest);
+                layout.setBackgroundResource(R.drawable.forest_blurred);
                 break;
             case 1:
                 painting.setBackgroundResource(R.drawable.reflection);
+                layout.setBackgroundResource(R.drawable.reflection_blurred);
                 break;
             case 2:
                 painting.setBackgroundResource(R.drawable.still_life);
+                layout.setBackgroundResource(R.drawable.still_life_blurred);
                 break;
         }
 
@@ -97,11 +102,14 @@ public class ChartActivity extends AppCompatActivity implements SeekBar.OnSeekBa
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 RadioButton radioButton = group.findViewById(checkedId);
-                int iState;
-                if (radioButton.getId() == R.id.radioRow) {
-                    iState = 0;
-                } else {
-                    iState = 1;
+                int iState = -1; // If not changed later, error
+                switch (radioButton.getId()) {
+                    case R.id.radioRow:
+                        iState = 1;
+                        break;
+                    case R.id.radioCol:
+                        iState = 0;
+                        break;
                 }
                 currLineState = ImageChannelDataPoint.Line_State.values()[iState];
                 setSeekBarLineNoMax(currLineState);
@@ -114,7 +122,7 @@ public class ChartActivity extends AppCompatActivity implements SeekBar.OnSeekBa
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 RadioButton radioButton = group.findViewById(checkedId);
-                int iChannel = -1;
+                int iChannel = -1; // If not changed later, error
                 switch (radioButton.getId()) { // A case is always met
                     case R.id.radioRed:
                         iChannel = 0;

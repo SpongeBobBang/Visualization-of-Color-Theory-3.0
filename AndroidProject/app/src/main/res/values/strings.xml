@@ -31,4 +31,7 @@
   <string name="radio_yellow">Yellow channel</string>
   <string name="radio_blue">Blue channel</string>
 
+  <string name="name_seekbar1">Magnitude</string>
+  <string name="name_seekbar2">Density</string>
+
 </resources>

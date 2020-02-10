@@ -2,6 +2,7 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutChart"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ChartActivity">
@@ -10,9 +11,11 @@
         android:id="@+id/namePainting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
         android:text="TextView"
+        android:textColor="@color/white"
+        android:textSize="20sp"
         android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -23,7 +26,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:background="@drawable/forest"
-        android:layout_centerInParent="true"
         android:scaleType="centerCrop"
         app:layout_constraintStart_toEndOf="@+id/namePainting"
         app:layout_constraintTop_toBottomOf="@+id/namePainting" />
@@ -49,7 +51,7 @@
             android:layout_marginTop="300dp"
             android:layout_marginEnd="100dp"
             android:layout_marginRight="48dp"
-            android:layout_marginBottom="140dp" />
+            android:layout_marginBottom="162dp" />
 
         <RadioGroup
             android:id="@+id/radioGroupState"
@@ -93,6 +95,7 @@
                 android:id="@+id/radioRed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:buttonTint="@color/red"
                 android:checked="true"
                 android:text="@string/radio_red" />
 
@@ -100,15 +103,38 @@
                 android:id="@+id/radioYellow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:buttonTint="@color/yellow"
                 android:text="@string/radio_yellow" />
 
             <RadioButton
                 android:id="@+id/radioBlue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:buttonTint="@color/blue"
                 android:text="@string/radio_blue" />
         </RadioGroup>
 
+        <TextView
+            android:id="@+id/name_seekbar1"
+            android:layout_width="68dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/seekBar1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="12dp"
+            android:gravity="start"
+            android:text="@string/name_seekbar1" />
+
+        <TextView
+            android:id="@+id/name_seekbar2"
+            android:layout_width="68dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/seekBar2"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="12dp"
+            android:gravity="start"
+            android:text="@string/name_seekbar2" />
 
         <SeekBar
             android:id="@+id/seekBar1"
@@ -119,18 +145,23 @@
             android:layout_marginRight="5dp"
             android:layout_marginBottom="35dp"
             android:layout_toLeftOf="@+id/tvXMax"
+            android:layout_toRightOf="@+id/name_seekbar1"
             android:max="500"
             android:paddingBottom="12dp" />
 
         <SeekBar
             android:id="@+id/seekBar2"
-            android:layout_width="match_parent"
+            android:layout_width="248dp"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentBottom="true"
-            android:layout_margin="8dp"
-            android:layout_marginRight="5dp"
+            android:layout_marginLeft="97dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="6dp"
+            android:layout_marginBottom="10dp"
             android:layout_toLeftOf="@+id/tvYMax"
+            android:layout_toRightOf="@+id/name_seekbar2"
             android:max="150"
             android:paddingBottom="12dp" />
 
