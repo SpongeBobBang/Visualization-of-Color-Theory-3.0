@@ -5,8 +5,8 @@ import android.graphics.Color;
 import android.graphics.DashPathEffect;
 import android.graphics.drawable.Drawable;
 import android.media.Image;
-import android.support.constraint.ConstraintLayout;
-import android.support.v7.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -35,7 +35,7 @@ import java.util.ArrayList;
 
 public class ChartActivity extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener  {
     private static String TAG = "Chart";
-    private static String[] names_painting = {"Parisian Boulevard", "Still Life", "Ship Hull"};
+    private static String[] names_painting = {"Parisian Boulevard", "Ship Hull", "Still Life"};
 
     private static final int
                         iRed = AugmentedImageNode.iRed,
@@ -105,10 +105,10 @@ public class ChartActivity extends AppCompatActivity implements SeekBar.OnSeekBa
                 int iState = -1; // If not changed later, error
                 switch (radioButton.getId()) {
                     case R.id.radioRow:
-                        iState = 1;
+                        iState = 0;
                         break;
                     case R.id.radioCol:
-                        iState = 0;
+                        iState = 1;
                         break;
                 }
                 currLineState = ImageChannelDataPoint.Line_State.values()[iState];
