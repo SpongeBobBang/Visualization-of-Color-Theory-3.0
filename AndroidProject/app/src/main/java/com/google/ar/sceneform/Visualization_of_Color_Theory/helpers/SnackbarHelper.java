@@ -17,6 +17,8 @@ package com.google.ar.sceneform.Visualization_of_Color_Theory.helpers;
 import android.app.Activity;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
+
+import android.view.Gravity;
 import android.view.View;
 
 /**
@@ -88,7 +90,12 @@ public final class SnackbarHelper {
                     activity.findViewById(android.R.id.content),
                     message,
                     Snackbar.LENGTH_INDEFINITE);
-            messageSnackbar.getView().setBackgroundColor(BACKGROUND_COLOR);
+            Snackbar.SnackbarLayout view = (Snackbar.SnackbarLayout)messageSnackbar.getView();
+            view.setBackgroundColor(BACKGROUND_COLOR);
+//            Snackbar.SnackbarLayout.LayoutParams params =(Snackbar.SnackbarLayout.LayoutParams)view.getLayoutParams();
+//            params.height=208;
+//            view.setLayoutParams(params);
+            view.setMinimumHeight(30);
             if (dismissBehavior != DismissBehavior.HIDE) {
               messageSnackbar.setAction(
                   "Dismiss",

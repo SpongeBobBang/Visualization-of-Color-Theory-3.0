@@ -16,8 +16,6 @@
 
 package com.google.ar.sceneform.Visualization_of_Color_Theory;
 
-import android.app.Activity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -91,9 +89,9 @@ public class AugmentedImageActivity extends AppCompatActivity {
         layoutButtons = findViewById(R.id.layout_buttons);
         layoutToggle = findViewById(R.id.layout_toggle);
         switchRenderable = findViewById(R.id.switch_renderable);
-        switchRed = findViewById(R.id.channelRed);
-        switchYellow = findViewById(R.id.channelYellow);
-        switchBlue = findViewById(R.id.channelBlue);
+        switchRed = findViewById(R.id.switch_red);
+        switchYellow = findViewById(R.id.switch_yellow);
+        switchBlue = findViewById(R.id.switch_blue);
         channelChanged = false;
         renderChanged = false;
         onChannels = new boolean[3];
@@ -203,15 +201,15 @@ public class AugmentedImageActivity extends AppCompatActivity {
     public void toggleChannel(View view) {
         channelChanged = true;
         switch (view.getId()) {
-            case R.id.channelRed:
+            case R.id.switch_red:
                 toggleOnChannels(0);
                 toggleSwitchTransparency(view);
                 break;
-            case R.id.channelYellow:
+            case R.id.switch_yellow:
                 toggleOnChannels(1);
                 toggleSwitchTransparency(view);
                 break;
-            case R.id.channelBlue:
+            case R.id.switch_blue:
                 toggleOnChannels(2);
                 toggleSwitchTransparency(view);
                 break;
@@ -220,15 +218,15 @@ public class AugmentedImageActivity extends AppCompatActivity {
 
     private void toggleSwitchTransparency(View view) {
         switch (view.getId()) {
-            case R.id.channelRed:
+            case R.id.switch_red:
                 view.setBackgroundResource(onChannels[AugmentedImageNode.iRed] ?
                         R.color.red : R.color.red_50A);
                 break;
-            case R.id.channelYellow:
+            case R.id.switch_yellow:
                 view.setBackgroundResource(onChannels[AugmentedImageNode.iYellow] ?
                         R.color.yellow : R.color.yellow_50A);
                 break;
-            case R.id.channelBlue:
+            case R.id.switch_blue:
                 view.setBackgroundResource(onChannels[AugmentedImageNode.iBlue] ?
                         R.color.blue : R.color.blue_50A);
                 break;

@@ -2,8 +2,24 @@
 <resources>
     <style name="style_switch_holder">
         <item name="android:padding">8dp</item>
-        <item name="android:background">@drawable/bg_shape_rounded</item>
+        <item name="android:background">@drawable/bg_shape_switch</item>
         <item name="android:backgroundTint">@color/light</item>
         <item name="android:backgroundTintMode">multiply</item>
+    </style>
+
+    <style name="style_button_text" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/dark</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="style_button" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/light</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:background">@drawable/bg_shape_button</item>
+        <item name="android:backgroundTint">@color/blue_ui</item>
     </style>
 </resources>

@@ -1,13 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="red_50A">#80ff0000</color>
-    <color name="yellow_50A">#80ffff00</color>
-    <color name="blue_50A">#800000ff</color>
+    <color name="red_50A">#90ff0000</color>
+    <color name="yellow_50A">#90ffff00</color>
+    <color name="blue_50A">#900000ff</color>
+
+    <color name="red_25A">#50ff0000</color>
+    <color name="yellow_25A">#50ffff00</color>
+    <color name="blue_25A">#500000ff</color>
+
+    <color name="red_tint">#900000</color>
+    <color name="yellow_tint">#909000</color>
+    <color name="blur_tint">#000090</color>
+
     <color name="red">#ffff0000</color>
     <color name="yellow">#ffffff00</color>
     <color name="blue">#ff0000ff</color>
 
     <color name="white">#ffffffff</color>
     <color name="black">#ff000000</color>
+
+    <color name="light">#FAFAF9</color>
+    <color name="dark">#333333</color>
+    <color name="blue_ui">#0076ff</color>
+
+    <color name="transp">#00ffffff</color>
 
 </resources>
