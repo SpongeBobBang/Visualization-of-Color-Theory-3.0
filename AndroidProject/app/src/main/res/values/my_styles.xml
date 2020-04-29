@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="style_switch_holder">
+        <item name="android:padding">8dp</item>
+        <item name="android:background">@drawable/bg_shape_rounded</item>
+        <item name="android:backgroundTint">@color/light</item>
+        <item name="android:backgroundTintMode">multiply</item>
+    </style>
+</resources>
