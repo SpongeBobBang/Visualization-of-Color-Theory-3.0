@@ -1,25 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="style_switch_holder">
-        <item name="android:padding">8dp</item>
-        <item name="android:background">@drawable/bg_shape_switch</item>
-        <item name="android:backgroundTint">@color/light</item>
-        <item name="android:backgroundTintMode">multiply</item>
+    <style name="AppTheme.Holder_Switch">
+        <item name="android:paddingStart">6dp</item>
+        <item name="paddingEnd">6dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@drawable/card_bg</item>
     </style>
 
-    <style name="style_button_text" parent="TextAppearance.AppCompat">
-        <item name="android:textSize">16sp</item>
-        <item name="android:textColor">@color/dark</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:textAllCaps">true</item>
-    </style>
-
-    <style name="style_button" parent="TextAppearance.AppCompat">
+    <style name="AppTheme.Text_Button" parent="TextAppearance.AppCompat">
         <item name="android:textSize">16sp</item>
         <item name="android:textColor">@color/light</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textAllCaps">true</item>
-        <item name="android:background">@drawable/bg_shape_button</item>
-        <item name="android:backgroundTint">@color/blue_ui</item>
+    </style>
+
+    <style name="AppTheme.Button_Wide">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/light</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:background">@drawable/bg_8dp</item>
+        <item name="android:backgroundTint">@color/primary</item>
+    </style>
+    
+    <style name="AppTheme.Button">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/primary</item>
+        <item name="android:textStyle">bold</item>
+        <item name="textAllCaps">true</item>
+        <item name="android:background">@drawable/bg_16dp</item>
+        <item name="android:backgroundTint">@color/light</item>
+    </style>
+
+    <style name="AppTheme.Switch_ColorChannel">
+        <item name="android:thumb">@drawable/switch_thumb_channel</item>
+        <item name="android:track">@drawable/switch_track_channel</item>
+    </style>
+
+    <style name="AppTheme.Switch_Render">
+        <item name="android:thumb">@drawable/switch_thumb_render</item>
+        <item name="android:track">@drawable/switch_track_render</item>
     </style>
 </resources>

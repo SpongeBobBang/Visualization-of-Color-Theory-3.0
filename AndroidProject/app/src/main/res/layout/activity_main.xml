@@ -18,7 +18,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".AugmentedImageActivity">
+    tools:context=".AugmentedImageActivity"
+    android:theme="@style/AppTheme">
 
     <fragment
         android:id="@+id/ux_fragment"
@@ -29,14 +30,14 @@
     <ImageView
         android:id="@+id/image_view_fit_to_scan"
         android:layout_width="match_parent"
-        android:layout_height="1270dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:contentDescription="@string/fit_image_to_scan"
         android:scaleType="fitCenter"
         android:src="@drawable/fit_to_scan" />
 
     <LinearLayout
-        android:id="@+id/layout_buttons"
+        android:id="@+id/layout_options"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
@@ -44,138 +45,85 @@
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
-<!--        <Switch-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:track="@drawable/switch_track_channel"-->
-<!--            android:thumb="@drawable/switch_thumb_channel"/>-->
-
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="12dp">
+            android:gravity="center_vertical|end">
 
-            <LinearLayout
-                android:id="@+id/layout_switch_red"
+            <Button
+                android:id="@+id/button_rest"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@id/layout_switch_yellow"
-                style="@style/style_switch_holder">
+                android:layout_marginEnd="16dp"
+                android:paddingHorizontal="8dp"
+                android:minWidth="56dp"
+                android:minHeight="24dp"
+                android:text="@string/reset"
+                style="@style/AppTheme.Button"
+                android:onClick="reset"/>
 
-                <Switch
-                    android:id="@+id/switch_red"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="toggleChannel"
-                    android:background="@drawable/bg_shape_switch"
-                    android:backgroundTint="@color/red_50A"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                style="@style/AppTheme.Holder_Switch">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:text="@string/channel_red"
-                    style="@style/style_button_text" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/layout_switch_yellow"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toRightOf="@+id/layout_switch_red"
-                app:layout_constraintRight_toLeftOf="@+id/layout_switch_blue"
-                style="@style/style_switch_holder">
+                    android:layout_marginEnd="4dp"
+                    style="@style/AppTheme.Text_Button"
+                    android:text="@string/render"/>
 
                 <Switch
-                    android:id="@+id/switch_yellow"
+                    android:id="@+id/switch_renderable"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick="toggleChannel"
-                    android:background="@drawable/bg_shape_switch"
-                    android:backgroundTint="@color/yellow_50A" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:text="@string/channel_yellow"
-                    style="@style/style_button_text" />
+                    android:checked="true"
+                    style="@style/AppTheme.Switch_Render"
+                    android:onClick="toggleRenderable"/>
             </LinearLayout>
+        </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/layout_switch_blue"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <Switch
+                android:id="@+id/switch_red"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toRightOf="@id/layout_switch_yellow"
-                app:layout_constraintRight_toRightOf="parent"
-                style="@style/style_switch_holder">
+                style="@style/AppTheme.Switch_ColorChannel"
+                android:thumbTint="@color/red"
+                android:onClick="toggleChannel"/>
 
-                <Switch
-                    android:id="@+id/switch_blue"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="toggleChannel"
-                    android:background="@drawable/bg_shape_switch"
-                    android:backgroundTint="@color/blue_50A" />
+            <Switch
+                android:id="@+id/switch_yellow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                style="@style/AppTheme.Switch_ColorChannel"
+                android:thumbTint="@color/yellow"
+                android:onClick="toggleChannel"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:text="@string/channel_blue"
-                    style="@style/style_button_text" />
-            </LinearLayout>
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            <Switch
+                android:id="@+id/switch_blue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                style="@style/AppTheme.Switch_ColorChannel"
+                android:thumbTint="@color/blue"
+                android:onClick="toggleChannel"/>
+        </LinearLayout>
 
-        <RelativeLayout
+        <Button
             android:id="@+id/button_chart"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="invokeChart">
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:gravity="center"
-                android:text="@string/chart"
-                style="@style/style_button" />
-        </RelativeLayout>
+            android:layout_marginTop="8dp"
+            android:text="@string/chart"
+            style="@style/AppTheme.Button_Wide" />
     </LinearLayout>
-
-    <RelativeLayout
-        android:id="@+id/layout_toggle"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:layout_margin="16dp" >
-
-        <Button
-            android:id="@+id/button_rest"
-            android:layout_width="60dp"
-            android:layout_height="32dp"
-            android:layout_margin="16dp"
-            android:gravity="end"
-            android:onClick="reset"
-            android:text="@string/reset"
-            android:textSize="12sp" />
-
-        <Switch
-            android:id="@+id/switch_renderable"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:checked="true"
-            android:gravity="end"
-            android:onClick="toggleRenderable"
-            android:text="@string/render"
-            android:textSize="16sp" />
-
-    </RelativeLayout>
-
-
 </FrameLayout>

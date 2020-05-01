@@ -59,7 +59,7 @@ public class AugmentedImageActivity extends AppCompatActivity {
     private ImageView fitToScanView;
 
     private ViewGroup layoutButtons;
-    private ViewGroup layoutToggle;
+    private ViewGroup layoutOptions;
     private Switch switchRenderable;
     private Switch switchRed;
     private Switch switchYellow;
@@ -86,8 +86,8 @@ public class AugmentedImageActivity extends AppCompatActivity {
 
         arFragment.getArSceneView().getScene().addOnUpdateListener(this::onUpdateFrame);
 
-        layoutButtons = findViewById(R.id.layout_buttons);
-        layoutToggle = findViewById(R.id.layout_toggle);
+        layoutOptions = findViewById(R.id.layout_options);
+        layoutOptions.setVisibility(View.INVISIBLE);
         switchRenderable = findViewById(R.id.switch_renderable);
         switchRed = findViewById(R.id.switch_red);
         switchYellow = findViewById(R.id.switch_yellow);
@@ -148,11 +148,8 @@ public class AugmentedImageActivity extends AppCompatActivity {
                 case TRACKING:
                     // Have to switch to UI Thread to update View.
                     fitToScanView.setVisibility(View.GONE);
-                    if (layoutButtons.getVisibility() != View.VISIBLE) {
-                        layoutButtons.setVisibility(View.VISIBLE);
-                    }
-                    if (layoutToggle.getVisibility() != View.VISIBLE) {
-                        layoutToggle.setVisibility(View.VISIBLE);
+                    if (layoutOptions.getVisibility() != View.VISIBLE) {
+                        layoutOptions.setVisibility(View.VISIBLE);
                     }
                     // Create a new anchor for newly found images.
                     if (!augmentedImageMap.containsKey(augmentedImage)) {
@@ -203,32 +200,12 @@ public class AugmentedImageActivity extends AppCompatActivity {
         switch (view.getId()) {
             case R.id.switch_red:
                 toggleOnChannels(0);
-                toggleSwitchTransparency(view);
                 break;
             case R.id.switch_yellow:
                 toggleOnChannels(1);
-                toggleSwitchTransparency(view);
                 break;
             case R.id.switch_blue:
                 toggleOnChannels(2);
-                toggleSwitchTransparency(view);
-                break;
-        }
-    }
-
-    private void toggleSwitchTransparency(View view) {
-        switch (view.getId()) {
-            case R.id.switch_red:
-                view.setBackgroundResource(onChannels[AugmentedImageNode.iRed] ?
-                        R.color.red : R.color.red_50A);
-                break;
-            case R.id.switch_yellow:
-                view.setBackgroundResource(onChannels[AugmentedImageNode.iYellow] ?
-                        R.color.yellow : R.color.yellow_50A);
-                break;
-            case R.id.switch_blue:
-                view.setBackgroundResource(onChannels[AugmentedImageNode.iBlue] ?
-                        R.color.blue : R.color.blue_50A);
                 break;
         }
     }
