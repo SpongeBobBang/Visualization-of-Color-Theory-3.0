@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Theme -->
     <color name="primary">#FCA912</color>
+    <color name="primary_tint">#FCDA84</color>
 
+    <!-- Channel -->
     <color name="red">#ffff0000</color>
     <color name="red_50A">#90ff0000</color>
     <color name="red_25A">#50ff0000</color>
@@ -12,8 +15,10 @@
     <color name="blue_50A">#900000ff</color>
     <color name="blue_25A">#500000ff</color>
 
+    <!-- Grayscale -->
     <color name="transp">#00ffffff</color>
     <color name="white">#ffffffff</color>
+    <color name="white_60A">#90ffffff</color>
     <color name="light">#FAFAF9</color>
     <color name="gray_bg">#828282</color>
     <color name="gray_bg_50A">#90828282</color>

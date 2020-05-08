@@ -17,9 +17,11 @@ package com.google.ar.sceneform.Visualization_of_Color_Theory.helpers;
 import android.app.Activity;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.snackbar.Snackbar.SnackbarLayout;
 
 import android.view.Gravity;
 import android.view.View;
+import android.widget.TextView;
 
 /**
  * Helper to manage the sample snackbar. Hides the Android boilerplate code, and exposes simpler
@@ -89,13 +91,19 @@ public final class SnackbarHelper {
                 Snackbar.make(
                     activity.findViewById(android.R.id.content),
                     message,
-                    Snackbar.LENGTH_INDEFINITE);
-            Snackbar.SnackbarLayout view = (Snackbar.SnackbarLayout)messageSnackbar.getView();
-            view.setBackgroundColor(BACKGROUND_COLOR);
-//            Snackbar.SnackbarLayout.LayoutParams params =(Snackbar.SnackbarLayout.LayoutParams)view.getLayoutParams();
-//            params.height=208;
-//            view.setLayoutParams(params);
-            view.setMinimumHeight(30);
+                    Snackbar.LENGTH_LONG);
+            SnackbarLayout layout = (SnackbarLayout)messageSnackbar.getView();
+            layout.setBackgroundColor(BACKGROUND_COLOR);
+            TextView textView = layout.findViewById(com.google.android.material.R.id.snackbar_text);
+            textView.setGravity(Gravity.TOP);
+            SnackbarLayout.LayoutParams params =(SnackbarLayout.LayoutParams)layout.getLayoutParams();
+            params.height = 500;
+            params.setMargins(0, 0, 0, 0);
+            layout.setLayoutParams(params);
+            layout.setMinimumHeight(64);
+            layout.setPadding(0, 0, 0, 0);
+
+//            layout.getLayoutParams().height = 320;
             if (dismissBehavior != DismissBehavior.HIDE) {
               messageSnackbar.setAction(
                   "Dismiss",

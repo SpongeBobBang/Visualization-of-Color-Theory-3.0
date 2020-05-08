@@ -32,11 +32,6 @@
         <item name="android:backgroundTint">@color/light</item>
     </style>
 
-    <style name="AppTheme.Switch_ColorChannel">
-        <item name="android:thumb">@drawable/switch_thumb_channel</item>
-        <item name="android:track">@drawable/switch_track_channel</item>
-    </style>
-
     <style name="AppTheme.Switch_Render">
         <item name="android:thumb">@drawable/switch_thumb_render</item>
         <item name="android:track">@drawable/switch_track_render</item>

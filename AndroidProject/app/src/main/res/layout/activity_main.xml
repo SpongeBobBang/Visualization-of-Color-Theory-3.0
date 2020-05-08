@@ -27,6 +27,48 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical|end"
+        android:layout_marginTop="48dp"
+        android:layout_marginHorizontal="16dp">
+
+        <Button
+            android:id="@+id/button_rest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:paddingHorizontal="8dp"
+            android:minWidth="56dp"
+            android:minHeight="24dp"
+            android:text="@string/reset"
+            style="@style/AppTheme.Button"
+            android:onClick="reset"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            style="@style/AppTheme.Holder_Switch">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                style="@style/AppTheme.Text_Button"
+                android:text="@string/render"/>
+
+            <Switch
+                android:id="@+id/switch_renderable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                style="@style/AppTheme.Switch_Render"
+                android:onClick="toggleRenderable"/>
+        </LinearLayout>
+    </LinearLayout>
+
     <ImageView
         android:id="@+id/image_view_fit_to_scan"
         android:layout_width="match_parent"
@@ -41,49 +83,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:layout_margin="16dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="32dp"
         android:gravity="center_horizontal"
         android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical|end">
-
-            <Button
-                android:id="@+id/button_rest"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:paddingHorizontal="8dp"
-                android:minWidth="56dp"
-                android:minHeight="24dp"
-                android:text="@string/reset"
-                style="@style/AppTheme.Button"
-                android:onClick="reset"/>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                style="@style/AppTheme.Holder_Switch">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="4dp"
-                    style="@style/AppTheme.Text_Button"
-                    android:text="@string/render"/>
-
-                <Switch
-                    android:id="@+id/switch_renderable"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:checked="true"
-                    style="@style/AppTheme.Switch_Render"
-                    android:onClick="toggleRenderable"/>
-            </LinearLayout>
-        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -95,17 +98,20 @@
                 android:id="@+id/switch_red"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/AppTheme.Switch_ColorChannel"
-                android:thumbTint="@color/red"
-                android:onClick="toggleChannel"/>
+                android:thumb="@drawable/switch_thumb_channel_r"
+                android:track="@drawable/switch_track_channel"
+                android:trackTint="@color/red_50A"
+                android:onClick="toggleChannel"
+                android:checked="false" />
 
             <Switch
                 android:id="@+id/switch_yellow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                style="@style/AppTheme.Switch_ColorChannel"
-                android:thumbTint="@color/yellow"
+                android:thumb="@drawable/switch_thumb_channel_y"
+                android:track="@drawable/switch_track_channel"
+                android:trackTint="@color/yellow_50A"
                 android:onClick="toggleChannel"/>
 
             <Switch
@@ -113,8 +119,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                style="@style/AppTheme.Switch_ColorChannel"
-                android:thumbTint="@color/blue"
+                android:thumb="@drawable/switch_thumb_channel_b"
+                android:track="@drawable/switch_track_channel"
+                android:trackTint="@color/blue_50A"
                 android:onClick="toggleChannel"/>
         </LinearLayout>
 
@@ -124,6 +131,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="@string/chart"
-            style="@style/AppTheme.Button_Wide" />
+            style="@style/AppTheme.Button_Wide"
+            android:onClick="invokeChart" />
     </LinearLayout>
 </FrameLayout>
